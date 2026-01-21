@@ -1,0 +1,952 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(210, 40%, 96%);
+  --foreground: hsl(215, 27%, 17%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(215, 27%, 17%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(215, 27%, 17%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(210, 40%, 94%);
+  --secondary-foreground: hsl(215, 27%, 17%);
+  --muted: hsl(210, 40%, 94%);
+  --muted-foreground: hsl(215, 25%, 45%);
+  --accent: hsl(210, 40%, 94%);
+  --accent-foreground: hsl(215, 27%, 17%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --ring: hsl(221, 83%, 53%);
+  --chart-1: hsl(221, 83%, 53%);
+  --chart-2: hsl(142, 69%, 58%);
+  --chart-3: hsl(45, 93%, 58%);
+  --chart-4: hsl(0, 84%, 60%);
+  --chart-5: hsl(270, 95%, 75%);
+  --radius: 0.75rem;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Inter', system-ui, sans-serif;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(200, 6.6667%, 91.1765%);
+  --card: hsl(228, 9.8039%, 10%);
+  --card-foreground: hsl(0, 0%, 85.0980%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(200, 6.6667%, 91.1765%);
+  --primary: hsl(203.7736, 87.6033%, 52.5490%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(195, 15.3846%, 94.9020%);
+  --secondary-foreground: hsl(210, 25%, 7.8431%);
+  --muted: hsl(0, 0%, 9.4118%);
+  --muted-foreground: hsl(210, 3.3898%, 46.2745%);
+  --accent: hsl(205.7143, 70%, 7.8431%);
+  --accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
+  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(210, 5.2632%, 14.9020%);
+  --input: hsl(207.6923, 27.6596%, 18.4314%);
+  --ring: hsl(202.8169, 89.1213%, 53.1373%);
+  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
+  --chart-2: hsl(159.7826, 100%, 36.0784%);
+  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
+  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
+  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
+  --sidebar: hsl(228, 9.8039%, 10%);
+  --sidebar-foreground: hsl(0, 0%, 85.0980%);
+  --sidebar-primary: hsl(202.8169, 89.1213%, 53.1373%);
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: hsl(205.7143, 70%, 7.8431%);
+  --sidebar-accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
+  --sidebar-border: hsl(205.7143, 15.7895%, 26.0784%);
+  --sidebar-ring: hsl(202.8169, 89.1213%, 53.1373%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Inter', system-ui, sans-serif;
+  --radius: 0.75rem;
+}
+
+/* Ocean Theme - Deep blue with cyan accents (Dark-ish) */
+.theme-ocean {
+  --background: hsl(210, 30%, 12%);
+  --foreground: hsl(190, 80%, 95%);
+  --card: hsl(210, 25%, 18%);
+  --card-foreground: hsl(190, 70%, 92%);
+  --popover: hsl(210, 30%, 15%);
+  --popover-foreground: hsl(190, 80%, 95%);
+  --primary: hsl(195, 85%, 55%);
+  --primary-foreground: hsl(210, 30%, 10%);
+  --secondary: hsl(210, 20%, 25%);
+  --secondary-foreground: hsl(190, 70%, 90%);
+  --muted: hsl(210, 20%, 22%);
+  --muted-foreground: hsl(190, 30%, 70%);
+  --accent: hsl(180, 75%, 45%);
+  --accent-foreground: hsl(210, 30%, 10%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(210, 20%, 28%);
+  --input: hsl(210, 20%, 25%);
+  --ring: hsl(195, 85%, 55%);
+  --radius: 0.75rem;
+}
+
+/* Forest Theme - Deep green with emerald accents (Dark) */
+.theme-forest {
+  --background: hsl(140, 25%, 10%);
+  --foreground: hsl(140, 40%, 95%);
+  --card: hsl(140, 20%, 16%);
+  --card-foreground: hsl(140, 35%, 92%);
+  --popover: hsl(140, 25%, 13%);
+  --popover-foreground: hsl(140, 40%, 95%);
+  --primary: hsl(142, 75%, 50%);
+  --primary-foreground: hsl(140, 30%, 8%);
+  --secondary: hsl(140, 18%, 23%);
+  --secondary-foreground: hsl(140, 35%, 88%);
+  --muted: hsl(140, 18%, 20%);
+  --muted-foreground: hsl(140, 25%, 65%);
+  --accent: hsl(160, 70%, 45%);
+  --accent-foreground: hsl(140, 30%, 8%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(140, 18%, 26%);
+  --input: hsl(140, 18%, 23%);
+  --ring: hsl(142, 75%, 50%);
+  --radius: 0.75rem;
+}
+
+/* Sunset Theme - Purple-orange gradient theme (Medium-dark) */
+.theme-sunset {
+  --background: hsl(280, 20%, 14%);
+  --foreground: hsl(30, 60%, 95%);
+  --card: hsl(280, 18%, 20%);
+  --card-foreground: hsl(30, 50%, 92%);
+  --popover: hsl(280, 20%, 16%);
+  --popover-foreground: hsl(30, 60%, 95%);
+  --primary: hsl(25, 90%, 58%);
+  --primary-foreground: hsl(280, 25%, 10%);
+  --secondary: hsl(280, 15%, 26%);
+  --secondary-foreground: hsl(30, 50%, 88%);
+  --muted: hsl(280, 15%, 23%);
+  --muted-foreground: hsl(30, 30%, 70%);
+  --accent: hsl(280, 75%, 55%);
+  --accent-foreground: hsl(30, 60%, 95%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(280, 15%, 30%);
+  --input: hsl(280, 15%, 26%);
+  --ring: hsl(25, 90%, 58%);
+  --radius: 0.75rem;
+}
+
+/* Rose Theme - Light pink theme with deep rose accents */
+.theme-rose {
+  --background: hsl(350, 100%, 97%);
+  --foreground: hsl(340, 40%, 15%);
+  --card: hsl(350, 100%, 99%);
+  --card-foreground: hsl(340, 35%, 20%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(340, 40%, 15%);
+  --primary: hsl(346, 77%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(350, 60%, 95%);
+  --secondary-foreground: hsl(340, 40%, 25%);
+  --muted: hsl(350, 50%, 94%);
+  --muted-foreground: hsl(340, 25%, 45%);
+  --accent: hsl(320, 70%, 55%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(350, 40%, 90%);
+  --input: hsl(350, 40%, 92%);
+  --ring: hsl(346, 77%, 50%);
+  --radius: 0.75rem;
+}
+
+/* Lavender Theme - Soft purple light theme */
+.theme-lavender {
+  --background: hsl(270, 60%, 96%);
+  --foreground: hsl(270, 40%, 20%);
+  --card: hsl(270, 60%, 98%);
+  --card-foreground: hsl(270, 35%, 25%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(270, 40%, 20%);
+  --primary: hsl(265, 85%, 58%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(270, 50%, 92%);
+  --secondary-foreground: hsl(270, 40%, 28%);
+  --muted: hsl(270, 45%, 90%);
+  --muted-foreground: hsl(270, 25%, 50%);
+  --accent: hsl(280, 75%, 60%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(270, 35%, 88%);
+  --input: hsl(270, 35%, 90%);
+  --ring: hsl(265, 85%, 58%);
+  --radius: 0.75rem;
+}
+
+/* Mint Theme - Fresh green-blue light theme */
+.theme-mint {
+  --background: hsl(160, 65%, 96%);
+  --foreground: hsl(160, 45%, 18%);
+  --card: hsl(160, 60%, 98%);
+  --card-foreground: hsl(160, 40%, 22%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(160, 45%, 18%);
+  --primary: hsl(160, 70%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(160, 50%, 92%);
+  --secondary-foreground: hsl(160, 40%, 26%);
+  --muted: hsl(160, 45%, 90%);
+  --muted-foreground: hsl(160, 25%, 48%);
+  --accent: hsl(175, 70%, 48%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(160, 35%, 88%);
+  --input: hsl(160, 35%, 90%);
+  --ring: hsl(160, 70%, 45%);
+  --radius: 0.75rem;
+}
+
+/* Slate Theme - Cool gray medium theme */
+.theme-slate {
+  --background: hsl(215, 25%, 27%);
+  --foreground: hsl(210, 40%, 95%);
+  --card: hsl(215, 22%, 32%);
+  --card-foreground: hsl(210, 35%, 92%);
+  --popover: hsl(215, 25%, 30%);
+  --popover-foreground: hsl(210, 40%, 95%);
+  --primary: hsl(210, 80%, 55%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(215, 20%, 38%);
+  --secondary-foreground: hsl(210, 35%, 88%);
+  --muted: hsl(215, 18%, 35%);
+  --muted-foreground: hsl(210, 25%, 68%);
+  --accent: hsl(200, 75%, 52%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(215, 18%, 42%);
+  --input: hsl(215, 18%, 38%);
+  --ring: hsl(210, 80%, 55%);
+  --radius: 0.75rem;
+}
+
+/* Amber Theme - Warm golden light theme */
+.theme-amber {
+  --background: hsl(45, 100%, 96%);
+  --foreground: hsl(30, 45%, 18%);
+  --card: hsl(45, 95%, 98%);
+  --card-foreground: hsl(30, 40%, 22%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(30, 45%, 18%);
+  --primary: hsl(38, 92%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(45, 80%, 92%);
+  --secondary-foreground: hsl(30, 40%, 26%);
+  --muted: hsl(45, 75%, 90%);
+  --muted-foreground: hsl(30, 25%, 48%);
+  --accent: hsl(35, 90%, 55%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(45, 50%, 88%);
+  --input: hsl(45, 50%, 90%);
+  --ring: hsl(38, 92%, 50%);
+  --radius: 0.75rem;
+}
+
+/* Crimson Theme - Deep red dark theme */
+.theme-crimson {
+  --background: hsl(348, 30%, 12%);
+  --foreground: hsl(350, 70%, 95%);
+  --card: hsl(348, 25%, 18%);
+  --card-foreground: hsl(350, 65%, 92%);
+  --popover: hsl(348, 30%, 15%);
+  --popover-foreground: hsl(350, 70%, 95%);
+  --primary: hsl(348, 83%, 47%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(348, 20%, 24%);
+  --secondary-foreground: hsl(350, 65%, 88%);
+  --muted: hsl(348, 18%, 22%);
+  --muted-foreground: hsl(350, 30%, 68%);
+  --accent: hsl(355, 85%, 55%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(348, 18%, 28%);
+  --input: hsl(348, 18%, 24%);
+  --ring: hsl(348, 83%, 47%);
+  --radius: 0.75rem;
+}
+
+/* Indigo Theme - Deep blue-purple medium theme */
+.theme-indigo {
+  --background: hsl(235, 35%, 20%);
+  --foreground: hsl(230, 55%, 95%);
+  --card: hsl(235, 30%, 26%);
+  --card-foreground: hsl(230, 50%, 92%);
+  --popover: hsl(235, 35%, 23%);
+  --popover-foreground: hsl(230, 55%, 95%);
+  --primary: hsl(235, 70%, 55%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(235, 25%, 32%);
+  --secondary-foreground: hsl(230, 50%, 88%);
+  --muted: hsl(235, 22%, 30%);
+  --muted-foreground: hsl(230, 30%, 70%);
+  --accent: hsl(245, 75%, 58%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(235, 22%, 36%);
+  --input: hsl(235, 22%, 32%);
+  --ring: hsl(235, 70%, 55%);
+  --radius: 0.75rem;
+}
+
+/* Teal Theme - Balanced cyan-green medium theme */
+.theme-teal {
+  --background: hsl(180, 30%, 22%);
+  --foreground: hsl(175, 50%, 95%);
+  --card: hsl(180, 25%, 28%);
+  --card-foreground: hsl(175, 45%, 92%);
+  --popover: hsl(180, 30%, 25%);
+  --popover-foreground: hsl(175, 50%, 95%);
+  --primary: hsl(175, 65%, 45%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(180, 20%, 34%);
+  --secondary-foreground: hsl(175, 45%, 88%);
+  --muted: hsl(180, 18%, 32%);
+  --muted-foreground: hsl(175, 25%, 70%);
+  --accent: hsl(170, 70%, 48%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(180, 18%, 38%);
+  --input: hsl(180, 18%, 34%);
+  --ring: hsl(175, 65%, 45%);
+  --radius: 0.75rem;
+}
+
+/* Chocolate Theme - Rich brown warm theme */
+.theme-chocolate {
+  --background: hsl(25, 35%, 18%);
+  --foreground: hsl(30, 50%, 95%);
+  --card: hsl(25, 30%, 24%);
+  --card-foreground: hsl(30, 45%, 92%);
+  --popover: hsl(25, 35%, 21%);
+  --popover-foreground: hsl(30, 50%, 95%);
+  --primary: hsl(20, 70%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(25, 25%, 30%);
+  --secondary-foreground: hsl(30, 45%, 88%);
+  --muted: hsl(25, 22%, 28%);
+  --muted-foreground: hsl(30, 25%, 68%);
+  --accent: hsl(30, 75%, 52%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(25, 22%, 34%);
+  --input: hsl(25, 22%, 30%);
+  --ring: hsl(20, 70%, 50%);
+  --radius: 0.75rem;
+}
+
+/* Print styles for invoices */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    color-scheme: light !important;
+  }
+
+  html.dark body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Hide everything by default when printing */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Only show the invoice print area */
+  #invoice-print,
+  #invoice-print * {
+    visibility: visible;
+  }
+
+  /* Position the invoice print area to fill the page */
+  #invoice-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    background: #fff !important;
+  }
+
+  /* Ensure all text is black in print */
+  #invoice-print * {
+    color: #000 !important;
+    background: transparent !important;
+  }
+
+  /* Special handling for borders and separators */
+  #invoice-print .border {
+    border-color: #000 !important;
+  }
+
+  #invoice-print .bg-muted\/50 {
+    background-color: #f5f5f5 !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive utilities */
+.text-wrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.scrollable-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile responsive tables */
+@media (max-width: 768px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .responsive-card {
+    padding: 0.75rem;
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mobile-stack {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 1px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Full-width layout utilities */
+.full-width-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+.full-width-content {
+  width: 100%;
+  max-width: none;
+}
+
+/* Main content area adjustments */
+.main-content-area {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* Content wrapper for proper spacing */
+.content-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
+}
+
+/* Sidebar expanded state adjustments */
+.sidebar-expanded .main-content-area {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Content wrapper for proper spacing */
+.content-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Mobile layout fixes */
+@media (max-width: 1024px) {
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure main content area is properly positioned */
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .main-content-area {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 1rem;
+  }
+
+  /* Improve card layouts on mobile */
+  .responsive-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Better button layouts */
+  .mobile-button-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  /* Improved form layouts */
+  .mobile-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Mobile sidebar should be off-screen by default */
+  .mobile-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .mobile-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Reduce padding on mobile */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Compact cards on mobile */
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+
+  /* Make tables more compact on mobile */
+  .compact-mobile table th,
+  .compact-mobile table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  /* Reduce card padding on mobile */
+  .card-responsive {
+    padding: 0.75rem;
+  }
+
+  /* Stack buttons vertically on mobile */
+  .mobile-button-stack {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-button-stack > * {
+    width: 100%;
+  }
+}
+
+/* Small laptop screens (1280px and below) */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Make grid layouts more responsive */
+  .grid-responsive {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* Adjust font sizes for smaller screens */
+  .responsive-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  /* Table responsiveness */
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 0.5rem;
+  }
+
+  /* Make all tables smaller on laptops */
+  table {
+    font-size: 0.75rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.375rem 0.5rem;
+    line-height: 1.2;
+  }
+
+  /* Specific adjustments for different table elements */
+  .text-xl, .text-2xl {
+    font-size: 1rem;
+  }
+
+  .text-lg {
+    font-size: 0.875rem;
+  }
+
+  /* Button sizes in tables */
+  table button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Badge sizes in tables */
+  table .badge {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  /* Card adjustments */
+  .card-responsive {
+    padding: 1rem;
+  }
+
+  /* Button group stacking */
+  .button-group-responsive {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-group-responsive > * {
+    width: 100%;
+  }
+
+  /* Form layouts */
+  .form-grid-responsive {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stats cards adjustment */
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  /* Card adjustments */
+  .card-responsive {
+    padding: 1rem;
+  }
+
+  /* Button group stacking */
+  .button-group-responsive {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .button-group-responsive > * {
+    width: 100%;
+  }
+
+  /* Form layouts */
+  .form-grid-responsive {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra small laptops and tablets */
+@media (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive text utilities */
+.responsive-text {
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+}
+
+.responsive-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.responsive-value {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+/* Prevent text overflow in cards */
+.card-content {
+  overflow: hidden;
+}
+
+.card-content * {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Desktop layout improvements */
+@media (min-width: 1024px) {
+  .sidebar-transition {
+    transform: translateX(0);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 30;
+  }
+
+  /* Ensure main content has proper spacing */
+  .main-content {
+    transition: margin-left 0.3s ease-in-out;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content-area {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  /* Content wrapper responsive sizing */
+  .content-wrapper {
+    max-width: calc(100vw - 16rem); /* Account for sidebar width */
+    margin: 0 auto;
+  }
+
+  /* When sidebar is collapsed */
+  .sidebar-collapsed .content-wrapper {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+/* Custom Scrollbars - Ultra thin and subtle */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Show scrollbar on hover for better UX */
+.scrollable-container {
+  overflow: auto;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.scrollable-container:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark .scrollable-container:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Make sure content fits on page */
+  .container {
+    max-width: none !important;
+    padding: 0.5in !important;
+    margin: 0 !important;
+  }
+
+  /* Invoice specific styles */
+  .invoice-content {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure tables print correctly */
+  table {
+    page-break-inside: avoid;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  /* Headers */
+  h1, h2, h3 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  /* Hide all buttons */
+  button {
+    display: none !important;
+  }
+
+  /* Links should appear as normal text */
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  /* Background colors for tables */
+  .bg-muted {
+    background-color: #f9f9f9 !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* Borders */
+  .border {
+    border: 1px solid #ddd !important;
+  }
+
+  .border-b {
+    border-bottom: 1px solid #ddd !important;
+  }
+}
